@@ -23,8 +23,9 @@ class ContactController extends Controller
     {
         $validated = $request->validated();
 
-        $category = Category::find($validated['category_id']);
+        $request->flash();
 
+        $category = Category::find($validated['category_id']);
         $tags = Tag::whereIn('id', $validated['tag_ids'] ?? [])->get();
 
         return view('contact.confirm', compact(
