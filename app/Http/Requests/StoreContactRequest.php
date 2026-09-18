@@ -6,12 +6,13 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreContactRequest extends FormRequest
 {
-    //リクエストの認可
+    // リクエストの認可
     public function authorize(): bool
     {
         return true;
     }
-    //バリデーションルール
+
+    // バリデーションルール
     public function rules(): array
     {
         return [
@@ -29,7 +30,7 @@ class StoreContactRequest extends FormRequest
         ];
     }
 
-    //バリデーションメッセージ
+    // バリデーションメッセージ
     public function messages(): array
     {
         return [
@@ -45,5 +46,4 @@ class StoreContactRequest extends FormRequest
             'detail.max' => 'お問い合わせ内容は120文字以内で入力してください',
         ];
     }
-
 }

@@ -7,19 +7,13 @@ use Illuminate\Validation\Rule;
 
 class UpdateTagRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
+    // リクエストの認可
     public function authorize(): bool
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
+    // バリデーションルール
     public function rules(): array
     {
         return [
@@ -32,6 +26,7 @@ class UpdateTagRequest extends FormRequest
         ];
     }
 
+    // バリデーションメッセージ
     public function messages(): array
     {
         return [

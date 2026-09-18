@@ -9,7 +9,7 @@ use App\Models\Tag;
 
 class ContactController extends Controller
 {
-    //お問い合わせフォーム入力ページ
+    // お問い合わせフォーム入力ページ
     public function index()
     {
         $categories = Category::all();
@@ -18,7 +18,7 @@ class ContactController extends Controller
         return view('contact.index', compact('categories', 'tags'));
     }
 
-    //お問い合わせフォーム確認ページ
+    // お問い合わせフォーム確認ページ
     public function confirm(StoreContactRequest $request)
     {
         $validated = $request->validated();
@@ -35,7 +35,7 @@ class ContactController extends Controller
         ));
     }
 
-    //お問い合わせを送信
+    // お問い合わせを送信
     public function store(StoreContactRequest $request)
     {
         $validated = $request->validated();
@@ -49,7 +49,6 @@ class ContactController extends Controller
 
         return redirect('/thanks');
     }
-
 
     public function thanks()
     {

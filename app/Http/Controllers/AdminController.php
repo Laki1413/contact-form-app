@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\IndexContactRequest;
-use App\Models\Contact;
 use App\Models\Category;
+use App\Models\Contact;
 use App\Models\Tag;
 
 class AdminController extends Controller
 {
-    //お問い合わせ一覧を表示
+    // お問い合わせ一覧を表示
     public function index(IndexContactRequest $request)
     {
         $query = Contact::query();
@@ -17,9 +17,9 @@ class AdminController extends Controller
         // 名前・メールアドレスで検索
         if ($request->filled('keyword')) {
             $query->where(function ($q) use ($request) {
-                $q->where('first_name', 'like', '%' . $request->keyword . '%')
-                    ->orWhere('last_name', 'like', '%' . $request->keyword . '%')
-                    ->orWhere('email', 'like', '%' . $request->keyword . '%');
+                $q->where('first_name', 'like', '%'.$request->keyword.'%')
+                    ->orWhere('last_name', 'like', '%'.$request->keyword.'%')
+                    ->orWhere('email', 'like', '%'.$request->keyword.'%');
             });
         }
 
@@ -48,7 +48,7 @@ class AdminController extends Controller
         return view('admin.index', compact('contacts', 'categories', 'tags'));
     }
 
-    //お問い合わせ詳細を表示
+    // お問い合わせ詳細を表示
     public function show(Contact $contact)
     {
         $contact->load(['category', 'tags']);
@@ -56,7 +56,7 @@ class AdminController extends Controller
         return view('admin.show', compact('contact'));
     }
 
-    //お問い合わせを削除
+    // お問い合わせを削除
     public function destroy(Contact $contact)
     {
         $contact->delete();
