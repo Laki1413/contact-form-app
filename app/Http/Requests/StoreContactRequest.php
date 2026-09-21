@@ -40,6 +40,7 @@ class StoreContactRequest extends FormRequest
             'email.required' => 'メールアドレスを入力してください',
             'email.email' => 'メールアドレスはメール形式で入力してください',
             'tel.required' => '電話番号を入力してください',
+            'tel.regex' => '電話番号は10桁または11桁の半角数字で入力してください',
             'address.required' => '住所を入力してください',
             'category_id.required' => 'お問い合わせの種類を選択してください',
             'detail.required' => 'お問い合わせ内容を入力してください',
